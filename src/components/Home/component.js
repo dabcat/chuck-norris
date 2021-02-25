@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDebounce } from 'hooks/debounce';
 import Loader from 'UI/Loader';
-import ItemComponent from '../ItemComponent';
+import ItemComponent from 'UI/Item';
 import style from './style.module.css';
 
 const HomeComponent = ({ fact, facts, isLoading, searchFactQuery }) => {
