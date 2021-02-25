@@ -48,6 +48,7 @@ const HomeComponent = ({ fact, facts, isLoading, searchFactQuery }) => {
 			<div className={style.randomFact}>
 				<ItemComponent fact={fact} />
 			</div>
+
 			{facts.slice(0, 6).map((item) => (
 				<ItemComponent key={item.id} fact={item} />
 			))}
