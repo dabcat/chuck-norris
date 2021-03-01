@@ -1,0 +1,83 @@
+.switch {
+	input[type='checkbox'] {
+		position: absolute;
+		opacity: 0;
+		width: 70px;
+		height: 33px;
+	}
+
+	input[type='checkbox'] + div {
+		vertical-align: middle;
+		width: 40px;
+		height: 20px;
+		border-radius: 999px;
+		background-color: #e8ecf1;
+		-webkit-transition-duration: 0.4s;
+		transition-duration: 0.4s;
+		-webkit-transition-property: background-image, background-color, box-shadow;
+		transition-property: background-image, background-color, box-shadow;
+		cursor: pointer;
+	}
+
+	input[type='checkbox'] + div span {
+		position: absolute;
+		font-size: 1.6rem;
+		color: white;
+		margin-top: 12px;
+	}
+
+	input[type='checkbox'] + div span:nth-child(1) {
+		margin-left: 15px;
+	}
+
+	input[type='checkbox'] + div span:nth-child(2) {
+		margin-left: 55px;
+	}
+
+	input[type='checkbox']:checked + div {
+		width: 70px;
+		background-position: 0 0;
+		background-color: #e8ecf1;
+	}
+
+	input[type='checkbox'] + div {
+		width: 70px;
+		height: 35px;
+	}
+
+	input[type='checkbox']:checked + div {
+		background-color: #e8ecf1;
+	}
+
+	input[type='checkbox'] + div > div {
+		float: left;
+		width: 33px;
+		height: 33px;
+		border-radius: inherit;
+		background: #ffffff;
+		-webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+		transition-timing-function: cubic-bezier(1, 0, 0, 1);
+		-webkit-transition-duration: 0.4s;
+		transition-duration: 0.4s;
+		-webkit-transition-property: transform, background-image, background-color;
+		transition-property: transform, background-image, background-color;
+		pointer-events: none;
+		margin-top: 1px;
+		margin-left: 1px;
+	}
+
+	input[type='checkbox']:checked + div > div {
+		-webkit-transform: translate3d(20px, 0, 0);
+		transform: translate3d(20px, 0, 0);
+		background-color: #ffffff;
+		background-image: url('/assets/icon-check.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 20px;
+	}
+
+	input[type='checkbox']:checked + div > div {
+		-webkit-transform: translate3d(46px, 0, 0);
+		transform: translate3d(35px, 0, 0);
+	}
+}

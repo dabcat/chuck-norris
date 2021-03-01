@@ -1,0 +1,41 @@
+.container {
+	display: flex;
+	max-width: 50%;
+	flex-direction: column;
+	margin: 0 auto;
+	font-size: 0.875rem;
+	line-height: 1.5rem;
+	padding: 1rem 0;
+	> * + * {
+		margin-top: 1rem;
+	}
+
+	.themeSwitch {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		& span {
+			padding: 0 0.5rem;
+		}
+	}
+
+	.search {
+		& label {
+			display: flex;
+			position: relative;
+			flex-direction: column;
+		}
+	}
+
+	.search {
+		& input {
+			padding: 0.5rem;
+		}
+	}
+
+	.randomFact {
+		display: flex;
+		flex-direction: column;
+	}
+}

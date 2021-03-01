@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icon_check</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon_check" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.25,13.4286191 L15.2286267,9.8181625 C15.5800913,9.3921448 16.2103653,9.33170758 16.636383,9.68317218 C17.0624007,10.0346368 17.1228379,10.6649107 16.7713733,11.0909284 L13.0213733,15.636383 C12.6213945,16.1212057 11.8786055,16.1212057 11.4786267,15.636383 L3.22862672,5.63638295 C2.87716212,5.21036526 2.93759935,4.58009132 3.36361705,4.22862672 C3.78963474,3.87716212 4.41990868,3.93759935 4.77137328,4.36361705 L12.25,13.4286191 Z" id="Path-2" fill="#2BD3A0" fill-rule="nonzero" transform="translate(10.000000, 9.999986) scale(-1, 1) translate(-10.000000, -9.999986) "></path>
+    </g>
+</svg>
