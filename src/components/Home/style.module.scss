@@ -32,6 +32,23 @@
 		& input {
 			padding: 0.5rem;
 		}
+
+		.clearQueryButton {
+			position: absolute;
+			top: 50%;
+			transform: 'translateY(-50%)';
+			right: 7px;
+			cursor: pointer;
+			z-index: 100;
+			background-color: #cecece;
+			border-radius: 50%;
+			width: 1.35rem;
+			height: 1.35rem;
+			line-height: 1.35rem;
+			text-align: center;
+			font-weight: 700;
+			color: #686868;
+		}
 	}
 
 	.randomFact {

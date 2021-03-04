@@ -7,6 +7,7 @@ import Loader from 'UI/Loader';
 import ItemComponent from 'UI/Item';
 import Switch from 'UI/Switch';
 import SearchHistory from 'UI/SearchHistory';
+import AutoSuggest from 'UI/AutoSuggest';
 import style from './style.module.scss';
 
 const HomeComponent = ({
@@ -14,7 +15,8 @@ const HomeComponent = ({
 	facts,
 	history,
 	isLoading,
-	searchFactQuery
+	searchFactQuery,
+	resetSearch
 }) => {
 	const [query, setQuery] = React.useState('');
 	const debounceQuery = useDebounce(query, 500);
@@ -37,6 +39,12 @@ const HomeComponent = ({
 
 	const handleSearchAgain = (q) => {
 		searchFactQuery(q);
+		setQuery(q);
+	};
+
+	const clearQuery = () => {
+		resetSearch();
+		setQuery('');
 	};
 	return (
 		<div className={style.container}>
@@ -49,11 +57,24 @@ const HomeComponent = ({
 				<label htmlFor="text">
 					<Loader isLoading={isLoading} />
 					<input
-						id="text"
-						type="text"
-						onKeyUp={handleSearch}
+						value={query}
+						onChange={handleSearch}
 						placeholder="Search for min 3 letters"
 					/>
+					{query && !isLoading && (
+						<a
+							tabIndex={0}
+							aria-hidden="true"
+							onClick={clearQuery}
+							className={style.clearQueryButton}
+							type="reset"
+							role="link"
+							style={{ top: '50%', transform: 'translateY(-50%)', right: 7 }}
+						>
+							x
+						</a>
+					)}
+					<AutoSuggest results={facts} maxResults={6} />
 				</label>
 			</div>
 			{facts.length === 0 && (
@@ -61,10 +82,6 @@ const HomeComponent = ({
 					<ItemComponent fact={fact} />
 				</div>
 			)}
-
-			{facts.slice(0, 6).map((item) => (
-				<ItemComponent key={item.id} fact={item} />
-			))}
 
 			<SearchHistory
 				history={history}

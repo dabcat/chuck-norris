@@ -1,0 +1,9 @@
+.container {
+	position: absolute;
+	top: 2rem;
+	left: 0;
+	background-color: var(--bg);
+	border: 1px solid #cecece;
+	z-index: 99;
+	padding: 1rem;
+}

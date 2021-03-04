@@ -11,7 +11,9 @@ export const actionTypes = {
 	APP_SEARCH_FACT_SUCCESS: 'APP/SEARCH_FACT_SUCCESS',
 	APP_SEARCH_FACT_FAILURE: 'APP/SEARCH_FACT_FAILURE',
 
-	APP_SEARCH_FACT_QUERY: 'APP/SEARCH_FACT_QUERY'
+	APP_SEARCH_FACT_QUERY: 'APP/SEARCH_FACT_QUERY',
+
+	APP_SEARCH_RESET: 'APP/SEARCH_RESET'
 };
 
 export const initialState = {
@@ -55,6 +57,12 @@ export default (state = initialState, action) => {
 				isLoading: false
 			};
 
+		case actionTypes.APP_SEARCH_RESET:
+			return {
+				...state,
+				facts: []
+			};
+
 		default:
 			return state;
 	}
@@ -77,5 +85,8 @@ export const actionCreators = {
 	searchFactQuery: (query) => ({
 		type: actionTypes.APP_SEARCH_FACT_QUERY,
 		query
+	}),
+	resetSearch: () => ({
+		type: actionTypes.APP_SEARCH_RESET
 	})
 };
