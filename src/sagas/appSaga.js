@@ -33,10 +33,13 @@ export function* searchResultsSaga(action) {
 
 		const { result } = yield call(apiService.searchFact, query);
 		const { history } = yield select((state) => state.app);
+
 		yield put({
 			type: appActionTypes.APP_SEARCH_FACT_SUCCESS,
 			facts: result,
-			history: history ? [...history, query] : [query]
+			history: history
+				? [...history, query].filter((v, i, a) => a.indexOf(v) === i)
+				: [query]
 		});
 	} catch (err) {
 		yield call(errorHandlerSaga, {
