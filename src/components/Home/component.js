@@ -62,19 +62,18 @@ const HomeComponent = ({
 						placeholder="Search for min 3 letters"
 					/>
 					{query && !isLoading && (
-						<a
+						<button
 							tabIndex={0}
 							aria-hidden="true"
 							onClick={clearQuery}
 							className={style.clearQueryButton}
-							type="reset"
+							type="button"
 							role="link"
-							style={{ top: '50%', transform: 'translateY(-50%)', right: 7 }}
 						>
 							x
-						</a>
+						</button>
 					)}
-					<AutoSuggest results={facts} maxResults={6} />
+					<AutoSuggest results={facts} maxResults={6} query={query} />
 				</label>
 			</div>
 			{facts.length === 0 && (
