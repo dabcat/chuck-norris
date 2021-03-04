@@ -1,4 +1,4 @@
-import { all, put, call, takeLatest } from 'redux-saga/effects';
+import { all, put, call, takeLatest, select } from 'redux-saga/effects';
 import {
 	actionCreators as appActionCreators,
 	actionTypes as appActionTypes
@@ -30,10 +30,13 @@ export function* getAppInitSaga() {
 export function* searchResultsSaga(action) {
 	try {
 		const { query } = action;
+
 		const { result } = yield call(apiService.searchFact, query);
+		const { history } = yield select((state) => state.app);
 		yield put({
 			type: appActionTypes.APP_SEARCH_FACT_SUCCESS,
-			facts: result
+			facts: result,
+			history: history ? [...history, query] : [query]
 		});
 	} catch (err) {
 		yield call(errorHandlerSaga, {

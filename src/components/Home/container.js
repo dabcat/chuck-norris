@@ -6,12 +6,13 @@ import HomeComponent from './component';
 
 const mapStateToProps = (state) => {
 	const {
-		app: { fact, facts, isLoading }
+		app: { fact, facts, isLoading, history }
 	} = state;
 
 	return {
 		fact,
 		facts,
+		history,
 		isLoading
 	};
 };

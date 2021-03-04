@@ -1,0 +1,19 @@
+ul {
+	list-style: none;
+
+	& li {
+		cursor: pointer;
+
+		&::before {
+			content: '';
+			background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fb-heart.gif);
+			background-size: contain;
+			display: inline-block;
+			width: 1.25em;
+			height: 1.25em;
+			position: relative;
+			top: 0.35rem;
+			margin-right: 0.2rem;
+		}
+	}
+}

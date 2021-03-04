@@ -6,9 +6,16 @@ import { useTheme } from 'store/context';
 import Loader from 'UI/Loader';
 import ItemComponent from 'UI/Item';
 import Switch from 'UI/Switch';
+import SearchHistory from 'UI/SearchHistory';
 import style from './style.module.scss';
 
-const HomeComponent = ({ fact, facts, isLoading, searchFactQuery }) => {
+const HomeComponent = ({
+	fact,
+	facts,
+	history,
+	isLoading,
+	searchFactQuery
+}) => {
 	const [query, setQuery] = React.useState('');
 	const debounceQuery = useDebounce(query, 500);
 
@@ -26,6 +33,10 @@ const HomeComponent = ({ fact, facts, isLoading, searchFactQuery }) => {
 
 	const changeTheme = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
+	};
+
+	const handleSearchAgain = (q) => {
+		searchFactQuery(q);
 	};
 	return (
 		<div className={style.container}>
@@ -52,6 +63,8 @@ const HomeComponent = ({ fact, facts, isLoading, searchFactQuery }) => {
 			{facts.slice(0, 6).map((item) => (
 				<ItemComponent key={item.id} fact={item} />
 			))}
+
+			<SearchHistory history={history} recentSearch={handleSearchAgain} />
 		</div>
 	);
 };
@@ -60,12 +73,14 @@ HomeComponent.propTypes = {
 	fact: PropTypes.object,
 	facts: PropTypes.array,
 	isLoading: PropTypes.bool,
+	history: PropTypes.array,
 	searchFactQuery: PropTypes.func.isRequired
 };
 
 HomeComponent.defaultProps = {
 	fact: {},
 	facts: [],
+	history: [],
 	isLoading: false
 };
 

@@ -18,6 +18,7 @@ export const initialState = {
 	init: {},
 	fact: null,
 	facts: [],
+	history: [],
 	isLoading: false
 };
 
@@ -44,6 +45,13 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				facts: action.facts,
+				history: action.history,
+				isLoading: false
+			};
+
+		case actionTypes.APP_SEARCH_FACT_FAILURE:
+			return {
+				...state,
 				isLoading: false
 			};
 
@@ -61,9 +69,10 @@ export const actionCreators = {
 		type: actionTypes.APP_RANDOM_FACT_SUCCESS,
 		fact
 	}),
-	searchFactResults: ({ facts }) => ({
+	searchFactResults: ({ facts, history }) => ({
 		type: actionTypes.APP_SEARCH_FACT_SUCCESS,
-		facts
+		facts,
+		history
 	}),
 	searchFactQuery: (query) => ({
 		type: actionTypes.APP_SEARCH_FACT_QUERY,
