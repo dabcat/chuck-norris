@@ -34,12 +34,15 @@ export function* searchResultsSaga(action) {
 		const { result } = yield call(apiService.searchFact, query);
 		const { history } = yield select((state) => state.app);
 
+		// make history unique and in reverse order
+		const chunkHistory = history
+			? [...history, query].filter((v, i, a) => a.indexOf(v) === i).reverse()
+			: [query];
+
 		yield put({
 			type: appActionTypes.APP_SEARCH_FACT_SUCCESS,
 			facts: result,
-			history: history
-				? [...history, query].filter((v, i, a) => a.indexOf(v) === i)
-				: [query]
+			history: chunkHistory
 		});
 	} catch (err) {
 		yield call(errorHandlerSaga, {

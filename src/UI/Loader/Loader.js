@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './Loader.module.css';
+import style from './Loader.module.scss';
 
 const Loader = ({ isLoading }) =>
 	isLoading ? (

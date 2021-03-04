@@ -56,15 +56,21 @@ const HomeComponent = ({
 					/>
 				</label>
 			</div>
-			<div className={style.randomFact}>
-				<ItemComponent fact={fact} />
-			</div>
+			{facts.length === 0 && (
+				<div className={style.randomFact}>
+					<ItemComponent fact={fact} />
+				</div>
+			)}
 
 			{facts.slice(0, 6).map((item) => (
 				<ItemComponent key={item.id} fact={item} />
 			))}
 
-			<SearchHistory history={history} recentSearch={handleSearchAgain} />
+			<SearchHistory
+				history={history}
+				recentSearch={handleSearchAgain}
+				showMax={10}
+			/>
 		</div>
 	);
 };
