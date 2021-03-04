@@ -97,7 +97,8 @@ HomeComponent.propTypes = {
 	facts: PropTypes.array,
 	isLoading: PropTypes.bool,
 	history: PropTypes.array,
-	searchFactQuery: PropTypes.func.isRequired
+	searchFactQuery: PropTypes.func.isRequired,
+	resetSearch: PropTypes.func.isRequired
 };
 
 HomeComponent.defaultProps = {
