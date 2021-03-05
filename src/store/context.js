@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { usePrevious } from 'hooks/state';
 
 const ThemeContext = React.createContext();
 
@@ -10,18 +12,19 @@ export function useTheme() {
 }
 
 export function ThemeProvider(props) {
-	const [theme, setTheme] = React.useState('light');
+	const { defaultTheme } = props;
+	const [theme, setTheme] = React.useState(defaultTheme);
+	const prevTheme = usePrevious(theme);
 
 	React.useEffect(() => {
-		if (theme === 'light') {
-			document.body.classList.add('light');
-			document.body.classList.remove('dark');
-		} else {
-			document.body.classList.add('dark');
-			document.body.classList.remove('light');
-		}
-	}, [theme]);
+		document.body.classList.add(defaultTheme);
+		document.body.classList.replace(prevTheme, theme);
+	}, [theme, defaultTheme, prevTheme]);
 	return <ThemeContext.Provider value={[theme, setTheme]} {...props} />;
 }
+
+ThemeProvider.propTypes = {
+	defaultTheme: PropTypes.string.isRequired
+};
 
 export default ThemeContext;

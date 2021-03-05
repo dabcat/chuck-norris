@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 	return (
-		<ThemeProvider>
+		<ThemeProvider defaultTheme="dark">
 			<div className="App">
 				<Home />
 			</div>
