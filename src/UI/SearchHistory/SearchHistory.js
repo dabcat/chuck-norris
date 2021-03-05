@@ -8,7 +8,7 @@ const SearchHistory = ({ history, recentSearch, showMax }) =>
 	history.length > 0 ? (
 		<>
 			<h2>Recent Searches</h2>
-			<ul className={style}>
+			<ul className={style.list}>
 				{history.slice(0, showMax).map((i, index) => (
 					// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 					<li key={`${i}-${index}`} onClick={() => recentSearch(i)}>
